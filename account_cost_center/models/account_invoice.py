@@ -2,7 +2,7 @@
 # Copyright 2015-2017 Onestein (<http://www.onestein.eu>)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from openerp import api, fields, models
+from odoo import api, fields, models
 
 
 class AccountInvoice(models.Model):
@@ -25,10 +25,10 @@ class AccountInvoice(models.Model):
     def invoice_line_move_line_get(self):
         res = super(AccountInvoice, self).invoice_line_move_line_get()
 
-        for dict in res:
-            invl_id = dict.get('invl_id')
+        for dict_data in res:
+            invl_id = dict_data.get('invl_id')
             line = self.env['account.invoice.line'].browse(invl_id)
             if line.cost_center_id:
-                dict['cost_center_id'] = line.cost_center_id.id
+                dict_data['cost_center_id'] = line.cost_center_id.id
 
         return res

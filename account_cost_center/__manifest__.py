@@ -9,7 +9,7 @@
     'license': 'AGPL-3',
     'website': 'http://www.onestein.eu',
     'category': 'Accounting',
-    'version': '9.0.1.0.0',
+    'version': '10.0.1.0.0',
     'depends': [
         'account',
         'base_view_inheritance_extension'
@@ -22,5 +22,5 @@
         'views/account_invoice.xml',
         'views/account_invoice_report.xml',
     ],
-    'installable': False,
+    'installable': True,
 }
